@@ -2,6 +2,8 @@
 
 "BIZNES EKSPERT BAHO" MCHJ baholash tashkilotining bir sahifali vizitka sayti. Firma O'zbekistonda ko'char va ko'chmas mulkni baholaydi hamda biznes reja ishlab chiqadi.
 
+**Sayt manzili:** https://temurfaxriddinov.github.io/BIZNES_ekspert_baho_sayti/
+
 Sayt oddiy HTML, CSS va JavaScript'da yozilgan. Hech qanday framework, build jarayoni yoki server kerak emas.
 
 ## Fayllar
@@ -97,8 +99,8 @@ Rang sxemasini o'zgartirish uchun shu o'zgaruvchilarni almashtirish kifoya. Dark
 
 ## Joylash (hosting)
 
-Sayt statik, shuning uchun istalgan bepul hostingga uchala faylni yuklash kifoya:
+Sayt **GitHub Pages** orqali chiqarilgan. U `main` branch'ning ildiz papkasidan olinadi. `main`ga qilingan har bir `git push`dan keyin sayt 1–2 daqiqada avtomatik yangilanadi.
 
-- **GitHub Pages:** repozitoriyga yuklang → Settings → Pages → `main` branch.
+Boshqa hostingga ko'chirish kerak bo'lsa, sayt statik bo'lgani uchun uchala faylni yuklash kifoya:
 - **Netlify / Vercel:** papkani sudrab tashlang (drag & drop).
 - Oddiy hosting: fayllarni `public_html` papkasiga yuklang.

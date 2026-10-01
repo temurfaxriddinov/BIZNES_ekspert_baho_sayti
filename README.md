@@ -12,7 +12,13 @@ Sayt oddiy HTML, CSS va JavaScript'da yozilgan. Hech qanday framework, build jar
 mysite/
 ├── index.html   — sahifa tuzilishi va barcha matnlar
 ├── style.css    — barcha stillar (ranglar, shriftlar, light/dark rejim, moslashuvchanlik)
-├── script.js    — light/dark rejimni almashtirish va footer'dagi yil
+├── script.js    — light/dark rejim, telefon menyusi, faol bo'lim, footer'dagi yil
+├── assets/
+│   ├── favicon.svg          — favicon ("BE" belgisi)
+│   ├── favicon-32.png       — eski brauzerlar uchun favicon
+│   ├── apple-touch-icon.png — iPhone "bosh ekranga qo'shish" belgisi (180×180)
+│   ├── og-image.png         — havola kartasi rasmi (1200×630)
+│   └── og-image.html        — og-image.png shabloni
 └── README.md    — shu fayl
 ```
 
@@ -54,6 +60,15 @@ Uchala fayl (`index.html`, `style.css`, `script.js`) bitta papkada turishi kerak
 - 1080px dan tor ekranda menyu ☰ tugmasiga yig'iladi. Havola bosilganda, tashqariga bosilganda yoki Esc bosilganda menyu yopiladi.
 - Bo'limga silliq o'tiladi (`scroll-behavior: smooth`). Qurilmada "harakatni kamaytirish" yoqilgan bo'lsa, animatsiyalar o'chadi.
 - Yangi bo'lim qo'shsangiz, unga `id` bering va `<nav id="nav">` ichiga `<a href="#id">` havola qo'shing.
+
+## Havola kartasi (Telegram, ijtimoiy tarmoqlar)
+
+Sayt havolasi Telegram, Facebook, LinkedIn yoki X'ga tashlanganda sarlavha, tavsif va rasmli karta chiqadi. Buning uchun `index.html` ning `<head>` qismida Open Graph (`og:*`) va Twitter (`twitter:*`) teglari bor.
+
+- **Rasm:** `assets/og-image.png` (1200×630). `og:image` havolasi to'liq manzil bilan yozilishi shart.
+- **Rasmni o'zgartirish:** `assets/og-image.html` dagi matnni tahrirlang. So'ng PNG'ni qayta yasang (buyruq faylning boshida yozilgan) va push qiling.
+- **Telegram eski kartani ko'rsatsa:** Telegram havola ko'rinishini keshda saqlaydi. Telegram'da **@WebpageBot** ga sayt manzilini yuboring, karta yangilanadi.
+- **Tekshirish:** https://www.opengraph.xyz/ saytiga manzilni kiritib, kartaning qanday ko'rinishini oldindan ko'rish mumkin.
 
 ## Aloqa ma'lumotlari
 
@@ -98,9 +113,10 @@ Rang sxemasini o'zgartirish uchun shu o'zgaruvchilarni almashtirish kifoya. Dark
 | > 960px | To'liq ko'rinish |
 | ≤ 1080px | Menyu ☰ tugmasiga yig'iladi |
 | ≤ 960px | Qadamlar, ishlar, loyihalar va sharhlar 2 ustunga, xizmat panellari 1 ustunga o'tadi |
-| ≤ 760px | Hamma narsa 1 ustunda; "Bog'lanish" yozuvi yashiriladi, faqat ↗ tugmasi qoladi |
+| ≤ 760px | Hamma narsa 1 ustunda; header'da faqat logo, rejim va ☰ tugmalari qoladi (Aloqa menyuda); footer havolalari barmoq bilan bosishga qulay qilib kattalashtirilgan |
+| ≤ 400px | Logo va tugmalar biroz kichrayadi |
 
-375px kenglikda sahifa yonga surilmasligi tekshirilgan.
+320, 375 va 414px kengliklarda sahifa yonga surilmasligi tekshirilgan.
 
 ## Qilinishi kerak bo'lgan ishlar
 
@@ -109,7 +125,7 @@ Rang sxemasini o'zgartirish uchun shu o'zgaruvchilarni almashtirish kifoya. Dark
 - [ ] **Mijozlar fikri:** faqat haqiqiy mijozlarning sharhlarini, ularning roziligi bilan qo'ying.
 - [ ] **Matnlarni tekshirish:** xizmatlar ro'yxati, "Qanday ishlaymiz" qadamlari va taqqoslash bo'limidagi matnlar umumiy yozilgan. Firma faoliyatiga mos kelishini tekshiring.
 - [ ] **Hero rasmi:** hozir kod bilan chizilgan kechki shahar siluyeti turibdi. Haqiqiy foto qo'yish uchun `.hero` stiliga `background-image` qo'shing va `index.html`dagi `<svg class="hero-city">` blokini olib tashlang.
-- [ ] Ixtiyoriy: manzil, ish vaqti, litsenziya yoki sertifikat ma'lumotlari, favicon.
+- [ ] Ixtiyoriy: manzil, ish vaqti, litsenziya yoki sertifikat ma'lumotlari.
 
 ## Joylash (hosting)
 

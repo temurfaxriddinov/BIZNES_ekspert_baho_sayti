@@ -14,7 +14,7 @@
 <body>
 
   <!-- Header -->
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="wrap header-row">
       <a class="logo" href="#top">
         <span class="logo-mark">BE</span>
@@ -23,11 +23,14 @@
           <span class="logo-sub">MCHJ · Mulkni baholash</span>
         </span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="nav" aria-label="Asosiy menyu">
+        <a href="#jarayon">Jarayon</a>
         <a href="#xizmatlar">Xizmatlar</a>
-        <a href="#jarayon">Qanday ishlaymiz</a>
+        <a href="#ishlarim">Ishlarimiz</a>
         <a href="#loyihalar">Loyihalar</a>
-        <a href="#aloqa">Aloqa</a>
+        <a href="#fikrlar">Fikrlar</a>
+        <a href="#savol-javob">Savol-javob</a>
+        <a class="nav-mobile-only" href="#aloqa">Aloqa</a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark rejimga o'tish" title="Rejimni almashtirish">
@@ -38,6 +41,10 @@
           <span class="cta-text">Bog'lanish</span>
           <span class="cta-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="nav">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -340,6 +347,52 @@
       </div>
     </section>
 
+    <!-- Ishlarimiz. Rasm qo'yish: .work-media ichidagini <img src="images/ish-1.jpg" alt="..."> bilan almashtiring.
+         DIQQAT: [qavs] ichidagi matnlar to'ldirgich — haqiqiy ma'lumot bilan almashtiring. -->
+    <section class="section" id="ishlarim">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display">Ishlarimiz</h2>
+          <p>Bajarilgan ishlardan suratlar va qisqa ma'lumot.</p>
+        </div>
+        <div class="works">
+          <article class="work">
+            <div class="work-media">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>
+              <span>Rasm o'rni</span>
+            </div>
+            <div class="work-body">
+              <span class="project-tag">Ko'chmas mulk</span>
+              <h3>[Ish nomi]</h3>
+              <p>[Qisqa izoh — bajarilgan ish haqida 1–2 jumla.]</p>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-media">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>
+              <span>Rasm o'rni</span>
+            </div>
+            <div class="work-body">
+              <span class="project-tag">Ko'char mulk</span>
+              <h3>[Ish nomi]</h3>
+              <p>[Qisqa izoh — bajarilgan ish haqida 1–2 jumla.]</p>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-media">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>
+              <span>Rasm o'rni</span>
+            </div>
+            <div class="work-body">
+              <span class="project-tag">Biznes reja</span>
+              <h3>[Ish nomi]</h3>
+              <p>[Qisqa izoh — bajarilgan ish haqida 1–2 jumla.]</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Loyihalar. DIQQAT: quyidagi kartalar NAMUNA — haqiqiy loyihalaringiz bilan almashtiring. -->
     <section class="section" id="loyihalar">
       <div class="wrap">
@@ -388,6 +441,77 @@
       </div>
     </section>
 
+    <!-- Mijozlar fikri. DIQQAT: [qavs] ichidagi matnlar to'ldirgich — faqat haqiqiy mijoz sharhlarini (ruxsati bilan) qo'ying. -->
+    <section class="section soft-bg" id="fikrlar">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display has-sticker">Mijozlar fikri<span class="sticker sticker-under">Ular bizga ishonishdi</span></h2>
+        </div>
+        <div class="reviews">
+          <figure class="review">
+            <svg class="review-quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 7H6a3 3 0 0 0-3 3v4h5v-4H5.5A1.5 1.5 0 0 1 7 9h3zm11 0h-4a3 3 0 0 0-3 3v4h5v-4h-2.5A1.5 1.5 0 0 1 18 9h3z"/></svg>
+            <blockquote>[Mijoz sharhi shu yerga yoziladi — 2–3 jumla.]</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">M</span>
+              <span><strong>[Mijoz ismi]</strong><small>[Kasbi yoki kompaniyasi]</small></span>
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <svg class="review-quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 7H6a3 3 0 0 0-3 3v4h5v-4H5.5A1.5 1.5 0 0 1 7 9h3zm11 0h-4a3 3 0 0 0-3 3v4h5v-4h-2.5A1.5 1.5 0 0 1 18 9h3z"/></svg>
+            <blockquote>[Mijoz sharhi shu yerga yoziladi — 2–3 jumla.]</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">M</span>
+              <span><strong>[Mijoz ismi]</strong><small>[Kasbi yoki kompaniyasi]</small></span>
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <svg class="review-quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 7H6a3 3 0 0 0-3 3v4h5v-4H5.5A1.5 1.5 0 0 1 7 9h3zm11 0h-4a3 3 0 0 0-3 3v4h5v-4h-2.5A1.5 1.5 0 0 1 18 9h3z"/></svg>
+            <blockquote>[Mijoz sharhi shu yerga yoziladi — 2–3 jumla.]</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">M</span>
+              <span><strong>[Mijoz ismi]</strong><small>[Kasbi yoki kompaniyasi]</small></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Savol-javob -->
+    <section class="section" id="savol-javob">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display">Savol-javob</h2>
+          <p>Mijozlarimiz eng ko'p beradigan savollar.</p>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>Mulkni baholash nima uchun kerak?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Rasmiy baholash hisoboti mulkning bozor qiymatini hujjat bilan tasdiqlaydi. U bank krediti uchun garov rasmiylashtirishda, oldi-sotdi, meros va notarial ishlarda, sud nizolarida, ustav kapitaliga mulk kiritishda va sug'urtada talab qilinadi.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Baholash uchun qanday hujjatlar kerak?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Odatda mulkka egalik huquqini tasdiqlovchi hujjat, kadastr yoki texnik pasport hamda mulk egasining shaxsini tasdiqlovchi hujjat kerak bo'ladi. Aniq ro'yxat mulk turi va baholash maqsadiga qarab belgilanadi — murojaat qilganingizda aytib beramiz.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Baholash hisoboti qayerlarda qabul qilinadi?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Hisobot amaldagi qonunchilik va milliy baholash standartlari asosida tuziladi. Uni banklar, notariuslar, sudlar, davlat organlari va sug'urta kompaniyalari qabul qiladi.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Baholash qancha vaqt oladi va narxi qancha?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Muddat va narx mulk turi, hajmi va baholash maqsadiga bog'liq. Aniq muddat va narxni bilish uchun qo'ng'iroq qiling yoki Telegramda yozing — mulk haqida qisqacha ma'lumot olib, aytib beramiz.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Yakuniy CTA / Aloqa -->
     <section class="section final" id="aloqa">
       <div class="wrap final-inner">
@@ -430,7 +554,10 @@
             <ul>
               <li><a href="#jarayon">Qanday ishlaymiz</a></li>
               <li><a href="#xizmatlar">Xizmatlar</a></li>
+              <li><a href="#ishlarim">Ishlarimiz</a></li>
               <li><a href="#loyihalar">Loyihalar</a></li>
+              <li><a href="#fikrlar">Mijozlar fikri</a></li>
+              <li><a href="#savol-javob">Savol-javob</a></li>
               <li><a href="#aloqa">Aloqa</a></li>
             </ul>
           </div>

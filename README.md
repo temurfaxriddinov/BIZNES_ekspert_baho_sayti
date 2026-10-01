@@ -30,7 +30,7 @@ Uchala fayl (`index.html`, `style.css`, `script.js`) bitta papkada turishi kerak
 
 | # | Bo'lim | `id` | Tavsif |
 |---|--------|------|--------|
-| 1 | Header | — | Logo, menyu, rejim tugmasi, "Bog'lanish" tugmasi |
+| 1 | Header | — | Yopishib turadigan menyu (telefonda ☰), rejim tugmasi, "Bog'lanish" tugmasi |
 | 2 | Hero | `top` | Asosiy sarlavha, telefon va Telegram |
 | 3 | Qanday ishlaymiz | `jarayon` | 4 qadamli ish jarayoni |
 | 4 | CTA lentasi | — | "Xolis. Aniq. Ishonchli." va aloqa |
@@ -40,9 +40,20 @@ Uchala fayl (`index.html`, `style.css`, `script.js`) bitta papkada turishi kerak
 | 8 | Xizmat 02 | `kochar-mulk` | Ko'char mulkni baholash |
 | 9 | Xizmat 03 | `biznes-reja` | Biznes reja ishlab chiqish |
 | 10 | Taqqoslash | — | Rasmiy baholash va taxminiy narx farqi |
-| 11 | Loyihalarimiz | `loyihalar` | Bajarilgan ishlar kartalari |
-| 12 | Ikkilanmang! | `aloqa` | Yakuniy murojaat: telefon va Telegram |
-| 13 | Footer | — | Havolalar, aloqa, mualliflik huquqi |
+| 11 | Ishlarimiz | `ishlarim` | 3 ta karta: rasm, nom, qisqa izoh |
+| 12 | Loyihalarimiz | `loyihalar` | Bajarilgan ishlar kartalari |
+| 13 | Mijozlar fikri | `fikrlar` | 3 ta sharh kartasi |
+| 14 | Savol-javob | `savol-javob` | 4 ta ochiladigan savol (`<details>`) |
+| 15 | Ikkilanmang! | `aloqa` | Yakuniy murojaat: telefon va Telegram |
+| 16 | Footer | — | Havolalar, aloqa, mualliflik huquqi |
+
+## Menyu
+
+- Header sahifa aylantirilganda ham tepada qoladi (`position: sticky`) va ostiga yengil soya tushadi.
+- Hozir ko'rinib turgan bo'limning havolasi menyuda ajratib ko'rsatiladi.
+- 1080px dan tor ekranda menyu ☰ tugmasiga yig'iladi. Havola bosilganda, tashqariga bosilganda yoki Esc bosilganda menyu yopiladi.
+- Bo'limga silliq o'tiladi (`scroll-behavior: smooth`). Qurilmada "harakatni kamaytirish" yoqilgan bo'lsa, animatsiyalar o'chadi.
+- Yangi bo'lim qo'shsangiz, unga `id` bering va `<nav id="nav">` ichiga `<a href="#id">` havola qo'shing.
 
 ## Aloqa ma'lumotlari
 
@@ -85,7 +96,8 @@ Rang sxemasini o'zgartirish uchun shu o'zgaruvchilarni almashtirish kifoya. Dark
 | Ekran kengligi | O'zgarishlar |
 |---|---|
 | > 960px | To'liq ko'rinish |
-| ≤ 960px | Menyu yashiriladi; qadamlar va loyihalar 2 ustunga, xizmat panellari 1 ustunga o'tadi |
+| ≤ 1080px | Menyu ☰ tugmasiga yig'iladi |
+| ≤ 960px | Qadamlar, ishlar, loyihalar va sharhlar 2 ustunga, xizmat panellari 1 ustunga o'tadi |
 | ≤ 760px | Hamma narsa 1 ustunda; "Bog'lanish" yozuvi yashiriladi, faqat ↗ tugmasi qoladi |
 
 375px kenglikda sahifa yonga surilmasligi tekshirilgan.
@@ -93,6 +105,8 @@ Rang sxemasini o'zgartirish uchun shu o'zgaruvchilarni almashtirish kifoya. Dark
 ## Qilinishi kerak bo'lgan ishlar
 
 - [ ] **Loyihalar:** "Loyihalarimiz" bo'limidagi 6 ta karta namuna. Ularni haqiqiy loyihalar bilan almashtiring, "Shahar · Yil" qatoriga haqiqiy ma'lumot yozing. `index.html` ichida bu joy `NAMUNA` izohi bilan belgilangan.
+- [ ] **Ishlarimiz:** `[Ish nomi]` va `[Qisqa izoh]` to'ldirgichlarini almashtiring. Rasm qo'yish uchun `images/` papkasini yarating va `.work-media` ichidagini `<img src="images/ish-1.jpg" alt="...">` bilan almashtiring.
+- [ ] **Mijozlar fikri:** faqat haqiqiy mijozlarning sharhlarini, ularning roziligi bilan qo'ying.
 - [ ] **Matnlarni tekshirish:** xizmatlar ro'yxati, "Qanday ishlaymiz" qadamlari va taqqoslash bo'limidagi matnlar umumiy yozilgan. Firma faoliyatiga mos kelishini tekshiring.
 - [ ] **Hero rasmi:** hozir kod bilan chizilgan kechki shahar siluyeti turibdi. Haqiqiy foto qo'yish uchun `.hero` stiliga `background-image` qo'shing va `index.html`dagi `<svg class="hero-city">` blokini olib tashlang.
 - [ ] Ixtiyoriy: manzil, ish vaqti, litsenziya yoki sertifikat ma'lumotlari, favicon.

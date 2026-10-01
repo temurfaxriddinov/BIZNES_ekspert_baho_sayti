@@ -1,0 +1,28 @@
+# Maxfiy ma'lumotlar (parollar, API kalitlar)
+.env
+.env.*
+!.env.example
+
+# Operatsion tizim fayllari
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Muharrir va IDE sozlamalari
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude Code lokal sozlamalari
+.claude/
+
+# Node.js (kelajakda kerak bo'lsa)
+node_modules/
+npm-debug.log*
+
+# Loglar va vaqtinchalik fayllar
+*.log
+*.tmp
+*.bak

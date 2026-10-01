@@ -1,0 +1,347 @@
+:root {
+  --bg: #fbf8f3;
+  --surface: #ffffff;
+  --soft: #f3ebdf;
+  --ink: #2b231d;
+  --muted: #6e6257;
+  --line: #e8dccb;
+  --accent: #5a3a28;
+  --accent-hover: #472d1f;
+  --accent-ink: #ffffff;
+  --gold: #b08544;
+  --tag-ink: #8a6430;
+  --heading-shadow: #e6d3b0;
+  --card-shadow: #e2cfae;
+  --sticker-bg: #ecdcbf;
+  --sticker-ink: #5a3a28;
+  color-scheme: light;
+}
+
+/* Dark rejim: tizim sozlamasi bo'yicha (agar foydalanuvchi light tanlamagan bo'lsa)... */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1612;
+    --surface: #241d18;
+    --soft: #2a221c;
+    --ink: #f0e8de;
+    --muted: #b2a496;
+    --line: #3a3029;
+    --accent: #d2ab7c;
+    --accent-hover: #e0bd92;
+    --accent-ink: #1b1612;
+    --gold: #d4ad6a;
+    --tag-ink: #e0bd85;
+    --heading-shadow: #4a3626;
+    --card-shadow: #3d3024;
+    --sticker-bg: #3a2d22;
+    --sticker-ink: #e8c995;
+    color-scheme: dark;
+  }
+}
+/* ...yoki tugma orqali tanlanganda */
+:root[data-theme="dark"] {
+  --bg: #1b1612;
+  --surface: #241d18;
+  --soft: #2a221c;
+  --ink: #f0e8de;
+  --muted: #b2a496;
+  --line: #3a3029;
+  --accent: #d2ab7c;
+  --accent-hover: #e0bd92;
+  --accent-ink: #1b1612;
+  --gold: #d4ad6a;
+  --tag-ink: #e0bd85;
+  --heading-shadow: #4a3626;
+  --card-shadow: #3d3024;
+  --sticker-bg: #3a2d22;
+  --sticker-ink: #e8c995;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  transition: background-color .25s, color .25s;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+section { scroll-margin-top: 84px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 { line-height: 1.15; }
+
+/* Sarlavhalar — namunadagidek qalin shrift va siljigan soya */
+.display {
+  font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800;
+  font-size: clamp(34px, 5vw, 56px); line-height: 1.05; letter-spacing: -0.5px;
+  text-shadow: 3px 3px 0 var(--heading-shadow);
+}
+
+/* Qo'lda yozilgandek yorliqlar */
+.sticker {
+  display: inline-block; font-family: "Caveat", cursive; font-weight: 700; font-size: 19px; line-height: 1.2;
+  color: var(--sticker-ink); background: var(--sticker-bg); padding: 3px 14px; border-radius: 999px;
+  box-shadow: 2px 3px 0 var(--gold); transform: rotate(-5deg); text-shadow: none; letter-spacing: 0; white-space: nowrap;
+}
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 20; background: var(--bg); transition: background-color .25s; }
+.header-row { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.logo-mark {
+  width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); flex: none;
+  display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 16px;
+  box-shadow: 2px 2px 0 var(--gold);
+}
+.logo-name { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 16px; letter-spacing: .2px; line-height: 1.1; }
+.logo-sub { display: block; font-size: 11.5px; color: var(--tag-ink); font-weight: 500; }
+.nav { display: flex; gap: 30px; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px; transition: color .2s; }
+.nav a:hover { color: var(--tag-ink); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.theme-toggle {
+  width: 42px; height: 42px; flex: none; display: grid; place-items: center; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); transition: border-color .2s;
+}
+.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+.cta-pill { display: inline-flex; gap: 4px; text-decoration: none; }
+.cta-text, .cta-circle { background: var(--accent); color: var(--accent-ink); transition: background .2s; }
+.cta-text { padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; line-height: 22px; }
+.cta-circle { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; }
+.cta-circle svg { width: 18px; height: 18px; }
+.cta-pill:hover .cta-text, .cta-pill:hover .cta-circle { background: var(--accent-hover); }
+
+/* Hero — har doim qorong'i "kechki shahar" kartasi */
+.hero-wrap { padding-top: 4px; }
+.hero {
+  position: relative; overflow: hidden; border-radius: 28px; min-height: 580px;
+  display: grid; place-items: center; text-align: center; padding: 64px 24px 150px;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 64%, rgba(240, 150, 80, .45), transparent 70%),
+    linear-gradient(180deg, #231c2b 0%, #4a2f3a 30%, #9a5a3f 54%, #3a2820 72%, #140f0c 100%);
+}
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(15,10,8,.1), rgba(15,10,8,.35)); }
+.hero-city { position: absolute; left: 0; bottom: 0; width: 100%; height: 34%; z-index: 0; }
+.hero { grid-template-columns: minmax(0, 1fr); }
+.hero-content { position: relative; z-index: 2; max-width: 880px; min-width: 0; margin: 0 auto; }
+.hero-sticker { background: #ecdcbf; color: #5a3a28; box-shadow: 2px 3px 0 #b08544; margin-bottom: 24px; }
+.hero h1 {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; color: #fff;
+  font-size: clamp(40px, 7vw, 80px); line-height: 1.02; letter-spacing: -1px;
+  text-shadow: 3px 4px 0 rgba(20, 14, 10, .85); margin-bottom: 20px;
+}
+.hero p { color: rgba(255,255,255,.88); font-size: 18px; max-width: 560px; margin: 0 auto 34px; }
+
+/* Pill shaklidagi CTA (namunadagi qidiruv maydoni o'rnida) */
+.cta-bar { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 440px; margin: 0 auto; }
+.cta-bar-field {
+  flex: 1; min-width: 0; text-align: left; text-decoration: none; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  padding: 15px 24px; border-radius: 999px; background: #f6eee2; color: #2b231d; box-shadow: 3px 4px 0 #b08544;
+}
+.cta-bar-btn {
+  width: 54px; height: 54px; flex: none; border-radius: 50%; display: grid; place-items: center;
+  background: #b08544; color: #fff; box-shadow: 3px 4px 0 #6e4f22; transition: transform .2s;
+}
+.cta-bar-btn:hover { transform: translateY(-2px); }
+.cta-bar-btn svg { width: 22px; height: 22px; }
+
+/* Bo'limlar */
+.section { padding: 100px 0; }
+.section-head { text-align: center; max-width: 700px; margin: 0 auto 56px; }
+.section-head p { color: var(--muted); font-size: 18px; margin-top: 16px; }
+.has-sticker { position: relative; display: inline-block; }
+.sticker-under { position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%) rotate(-4deg); font-size: 17px; }
+
+/* Qanday ishlaymiz */
+.steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 56px 0; }
+.step-art {
+  position: relative; height: 150px; border-radius: 14px; background: var(--soft); overflow: hidden;
+  display: grid; place-items: center; margin-bottom: 22px;
+}
+.step h3 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 20px; text-shadow: 2px 2px 0 var(--heading-shadow); margin-bottom: 10px; }
+.step p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+.ticks { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13.5px; font-weight: 500; }
+.ticks li { display: flex; align-items: center; gap: 8px; }
+.ticks li::before { content: ""; width: 10px; height: 5px; border-left: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(-45deg) translateY(-2px); }
+.step-arrow { position: absolute; width: 120px; height: 50px; color: var(--muted); }
+.step-arrow.a1 { top: 0; left: calc(50% - 60px); }
+.step-arrow.a2 { bottom: 0; left: calc(25% - 60px); }
+.step-arrow.a3 { bottom: 0; left: calc(75% - 60px); }
+
+/* Qadam rasmchalari */
+.mock-pill {
+  display: flex; align-items: center; gap: 8px; width: 84%; padding: 6px 6px 6px 14px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: 2px 3px 0 var(--card-shadow); font-size: 12px; color: var(--muted);
+}
+.mock-pill span { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mock-pill i { width: 28px; height: 28px; flex: none; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; }
+.mock-pill svg { width: 14px; height: 14px; }
+.art { width: 150px; height: auto; }
+.art-a { fill: var(--accent); }
+.art-s { fill: var(--soft); }
+.art-ring { fill: rgba(255, 255, 255, .35); stroke: var(--gold); stroke-width: 6; }
+.art-h { stroke: var(--gold); stroke-width: 8; stroke-linecap: round; }
+.mock-card { width: 70%; padding: 12px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: 2px 3px 0 var(--card-shadow); }
+.mock-title { font-size: 11.5px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+.bars { display: flex; align-items: flex-end; gap: 6px; height: 56px; }
+.bars i { flex: 1; background: var(--gold); border-radius: 3px 3px 0 0; }
+.bars i:last-child { background: var(--accent); }
+.mock-check { width: 68px; height: 68px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; box-shadow: 3px 4px 0 var(--gold); }
+.mock-check svg { width: 34px; height: 34px; }
+.mock-note { position: absolute; right: 12%; bottom: 14px; font-family: "Caveat", cursive; font-weight: 700; font-size: 20px; color: var(--tag-ink); transform: rotate(-8deg); }
+
+/* CTA lenta */
+.band { background: var(--soft); padding: 56px 0; transition: background-color .25s; }
+.band-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.band-title { position: relative; display: inline-block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(22px, 3vw, 30px); }
+.band-swirl { position: absolute; right: -76px; top: -10px; width: 64px; height: 60px; color: var(--ink); }
+.band .cta-bar-field { background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: 3px 4px 0 var(--card-shadow); }
+.band .cta-bar-btn { background: var(--accent); color: var(--accent-ink); box-shadow: 3px 4px 0 var(--gold); }
+
+/* Nega aynan biz */
+.why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; max-width: 920px; margin: 0 auto; align-items: start; }
+.why-card {
+  text-align: center; padding: 36px 26px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 22px 30px 24px 28px; box-shadow: 5px 7px 0 var(--card-shadow);
+}
+.why-card:nth-child(1) { transform: rotate(-1.2deg); }
+.why-card:nth-child(2) { margin-top: 64px; }
+.why-card:nth-child(3) { transform: rotate(1.2deg); }
+.why-icon { width: 52px; height: 52px; margin: 0 auto 18px; display: block; color: var(--ink); }
+.why-card h3 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 21px; margin-bottom: 8px; }
+.why-card p { color: var(--muted); font-size: 15px; }
+
+/* Xizmatlar */
+.services-head { padding-bottom: 0; }
+.service { padding: 12px 0; }
+.service-panel {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;
+  padding: 48px; border-radius: 28px; background: var(--soft); transition: background-color .25s;
+}
+.service-panel.reverse .service-info { order: 2; }
+.service-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.card-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; box-shadow: 2px 3px 0 var(--gold); }
+.card-icon svg { width: 24px; height: 24px; }
+.service-num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: transparent; -webkit-text-stroke: 2px var(--gold); }
+.service-title { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(26px, 3vw, 34px); text-shadow: 2px 2px 0 var(--heading-shadow); margin-bottom: 14px; }
+.service-text { color: var(--muted); font-size: 17px; margin-bottom: 22px; }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li { padding: 6px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; }
+.service-list { padding: 26px 30px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); box-shadow: 5px 7px 0 var(--card-shadow); }
+.service-list h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.checklist { list-style: none; }
+.checklist li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px dashed var(--line); }
+.checklist li:last-child { border-bottom: 0; }
+.checklist li::before {
+  content: ""; position: absolute; left: 4px; top: 18px; width: 12px; height: 7px;
+  border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(-45deg);
+}
+
+/* Taqqoslash */
+.compare { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 920px; margin: 0 auto; }
+.compare-card { padding: 36px 32px 48px; border-radius: 22px; background: var(--soft); color: var(--muted); }
+.compare-card.primary { background: var(--surface); color: var(--ink); border: 2px solid var(--accent); box-shadow: 6px 8px 0 var(--card-shadow); }
+.compare-card h3 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 24px; text-align: center; margin-bottom: 18px; }
+.compare-card ul { list-style: none; }
+.compare-card li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px dashed var(--line); font-size: 15.5px; }
+.compare-card li:last-child { border-bottom: 0; }
+.compare-card li::before { content: "✕"; position: absolute; left: 4px; top: 10px; font-size: 13px; color: var(--muted); }
+.compare-card.primary li::before {
+  content: ""; left: 4px; top: 18px; width: 12px; height: 7px;
+  border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg);
+}
+.compare-badge {
+  position: absolute; left: 50%; bottom: -36px; transform: translateX(-50%) rotate(-10deg);
+  width: 78px; height: 78px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent); color: var(--accent-ink); border: 5px solid var(--bg); box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+.compare-badge svg { width: 34px; height: 34px; }
+
+/* Loyihalar */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card {
+  padding: 28px 26px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 20px 26px 22px 24px; box-shadow: 5px 7px 0 var(--card-shadow);
+}
+.card h3 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 20px; margin-bottom: 10px; }
+.card p { color: var(--muted); font-size: 15px; }
+.project { display: flex; flex-direction: column; }
+.project-tag {
+  align-self: flex-start; margin-bottom: 16px; padding: 4px 12px; border-radius: 999px;
+  background: var(--sticker-bg); color: var(--tag-ink); font-size: 13px; font-weight: 600;
+}
+.project p { margin-bottom: 20px; }
+.project-meta { margin-top: auto; padding-top: 16px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 14px; }
+
+/* Yakuniy CTA */
+.final-inner { position: relative; text-align: center; }
+.final .display { font-size: clamp(48px, 8vw, 88px); }
+.final-sub { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(20px, 2.6vw, 28px); margin: 14px 0 10px; }
+.final-sub mark { background: var(--sticker-bg); color: var(--sticker-ink); padding: 0 10px; border-radius: 8px; }
+.final-note { color: var(--muted); max-width: 520px; margin: 0 auto 34px; }
+.st-left { position: absolute; left: 3%; top: 30px; transform: rotate(-10deg); }
+.st-right { position: absolute; right: 3%; bottom: 10px; transform: rotate(7deg); }
+.btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 999px;
+  text-decoration: none; font-weight: 600; font-size: 16px; transition: background .2s, color .2s, transform .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); border: 2px solid var(--accent); box-shadow: 3px 4px 0 var(--gold); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { background: var(--surface); color: var(--ink); border: 2px solid var(--accent); box-shadow: 3px 4px 0 var(--card-shadow); }
+
+/* Footer */
+.site-footer { padding-bottom: 24px; }
+.footer-panel { padding: 52px 48px 24px; border-radius: 28px; background: var(--soft); transition: background-color .25s; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr; gap: 32px; }
+.footer-about p { color: var(--muted); font-size: 14.5px; margin-top: 16px; max-width: 300px; }
+.footer-grid h4 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 16px; margin-bottom: 12px; }
+.footer-grid ul { list-style: none; }
+.footer-grid li { margin: 7px 0; }
+.footer-grid li a { color: var(--muted); text-decoration: none; font-size: 14.5px; transition: color .2s; }
+.footer-grid li a:hover { color: var(--ink); }
+.footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: 13.5px; }
+
+/* Moslashuvchanlik */
+@media (max-width: 960px) {
+  .nav { display: none; }
+  .steps { grid-template-columns: repeat(2, 1fr); padding: 0; row-gap: 44px; }
+  .step-arrow { display: none; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .service-panel { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  .service-panel.reverse .service-info { order: 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .band-swirl { display: none; }
+}
+
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .section { padding: 72px 0; }
+  .header-row { height: 68px; }
+  .logo-sub, .cta-text, .hide-sm { display: none; }
+  .hero { min-height: 520px; padding: 56px 18px 120px; border-radius: 22px; }
+  .hero p { font-size: 16px; }
+  .steps, .grid, .why, .compare { grid-template-columns: 1fr; }
+  .why-card, .why-card:nth-child(n) { transform: none; margin-top: 0; }
+  .service-panel { padding: 28px 20px; border-radius: 22px; }
+  .service-num { font-size: 48px; }
+  .service-list { padding: 20px 22px; }
+  .st-left { position: static; display: inline-block; margin-bottom: 18px; }
+  .st-right { display: none; }
+  .footer-panel { padding: 36px 24px 20px; border-radius: 22px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 400px) {
+  .logo-name { font-size: 14px; }
+  .cta-bar-field { padding: 14px 18px; font-size: 14.5px; }
+}
